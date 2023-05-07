@@ -7,6 +7,7 @@ public class PlayerCamera : MonoBehaviour
     private float sensitivity = 400f;
     private float x_input, y_input;
     public Transform orientation;
+    public Transform body;
     private float xRotation;
     private float yRotation;
 
@@ -23,6 +24,8 @@ public class PlayerCamera : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+
+        body.transform.rotation = Quaternion.Euler(0, yRotation, 0f);
     }
 
  
