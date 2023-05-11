@@ -30,8 +30,13 @@ public class PlayerMechanics : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 isPicked = false;
-                pickUpObject.transform.parent = null;
+                pickUpObject.transform.parent = null;                
                 pickUpObject.GetComponent<Rigidbody>().AddForce(pickUpHolder.forward * Time.deltaTime * 50000f, ForceMode.Impulse);
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                isPicked = false;
+                pickUpObject.transform.parent = null;
             }
         }
     }
