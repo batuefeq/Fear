@@ -12,13 +12,36 @@ public class PlayerMechanics : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (other.gameObject.CompareTag("PickUp") && other.gameObject.transform.parent != gameObject.transform)
+            if (other.gameObject.CompareTag("Throwable") && other.gameObject.transform.parent != gameObject.transform)
             {
                 pickUpObject = other.gameObject;
                 pickUpObject.transform.parent = pickUpHolder;            
                 isPicked = true;
             }
+            else if (other.gameObject.CompareTag("QuestObject"))
+            {
+                Destroy(other.gameObject); // DO STUFF
+            }
         }        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (other.gameObject.CompareTag("Throwable") && other.gameObject.transform.parent != gameObject.transform)
+            {
+                pickUpObject = other.gameObject;
+                pickUpObject.transform.parent = pickUpHolder;
+                isPicked = true;
+            }
+
+            else if (other.gameObject.CompareTag("QuestObject"))
+            {
+
+                Destroy(other.gameObject);
+            }
+        }
     }
 
 
