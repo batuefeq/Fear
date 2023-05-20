@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    private float sensitivity = 400f;
+    private float sensitivity = 150f;
     private float x_input, y_input;
     public Transform orientation;
     public Transform body;

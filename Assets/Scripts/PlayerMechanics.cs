@@ -7,6 +7,7 @@ public class PlayerMechanics : MonoBehaviour
     bool isPicked;
     public Transform pickUpHolder;
     private GameObject pickUpObject;
+    private List<GameObject> inventory = new();
 
     private void OnTriggerStay(Collider other)
     {
@@ -20,7 +21,9 @@ public class PlayerMechanics : MonoBehaviour
             }
             else if (other.gameObject.CompareTag("QuestObject"))
             {
-                Destroy(other.gameObject); // DO STUFF
+                inventory.Add(other.gameObject);
+                print(inventory);
+                Destroy(other.gameObject); // DO STUF                
             }
         }        
     }
@@ -35,10 +38,10 @@ public class PlayerMechanics : MonoBehaviour
                 pickUpObject.transform.parent = pickUpHolder;
                 isPicked = true;
             }
-
             else if (other.gameObject.CompareTag("QuestObject"))
-            {
-
+            {             
+                inventory.Add(other.gameObject);
+                print(inventory);
                 Destroy(other.gameObject);
             }
         }
